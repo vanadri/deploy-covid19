@@ -17,6 +17,7 @@ def predict():
 
     data = []
     data.append(int(total_kasus))
+    array.reshape(-1, 1)
     
     prediction = model.predict(data)
     output = prediction
