@@ -3,7 +3,7 @@ import pickle
 
 app = Flask(__name__)
 
-model_file = open('model.pkl', 'rb')
+model_file = open('modelregr.pkl', 'rb')
 model = pickle.load(model_file, encoding='bytes')
 
 @app.route('/')
@@ -12,30 +12,16 @@ def index():
 
 @app.route('/predict', methods=['POST'])
 def predict():
-    '''
-    Predict the insurance cost based on user inputs
-    and render the result to the html page
-    '''
-    age, sex, smoker = [x for x in request.form.values()]
+    for x in request.form.values():
+        total_kasus = x
 
     data = []
-
-    data.append(int(age))
-    if sex == 'Laki-laki':
-        data.extend([0, 1])
-    else:
-        data.extend([1, 0])
-
-    if smoker == 'Ya':
-        data.extend([0, 1])
-    else:
-        data.extend([1, 0])
+    data.append(int(total_kasus))
     
     prediction = model.predict([data])
-    output = round(prediction[0], 2)
+    output = prediction[0]
 
-    return render_template('index.html', insurance_cost=output, age=age, sex=sex, smoker=smoker)
-
+    return render_template('index.html', sembuh=output, total_kasus=total_kasus)
 
 if __name__ == '__main__':
     app.run(debug=True)
