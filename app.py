@@ -19,7 +19,7 @@ def predict():
     data.append(int(total_kasus))
     
     prediction = model.predict([data])
-    output = round(prediction[0[0]], 2)
+    output = round(prediction[0][0], 2)
 
     return render_template('index.html', sembuh=output, total_kasus=total_kasus)
 
