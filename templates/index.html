@@ -8,7 +8,7 @@
             href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css"
             rel="stylesheet"
         />
-        <title>Aplikasi Prediksi Biaya Asuransi</title>
+        <title>Aplikasi Prediksi Tingkat Kesembuhan Kasus Covid-19</title>
     </head>
     <body
         class="
@@ -18,15 +18,15 @@
             p-8
             min-h-screen
             bg-gradient-to-r
-            from-green-400
-            to-blue-500
+            from-green-500
+            to-cyan-300
             text-gray-800
             md:flex-row
         "
     >
         <main class="bg-white p-16 rounded-lg">
             <h1 class="text-3xl font-bold mb-8">
-                Prediksi Biaya Asuransi Anda:
+                Prediksi Kasus Kesembuhan:
             </h1>
 
             <form
@@ -34,36 +34,14 @@
                 method="post"
                 class="flex flex-col"
             >
-                <label for="Usia" class="mb-2">Usia</label>
+                <label for="total_kasus" class="mb-2">Total Kasus Covid-19</label>
                 <input
                     type="text"
-                    name="Usia"
-                    placeholder="Usia"
+                    name="total_kasus"
+                    placeholder="total_kasus"
                     required="required"
                     class="p-4 bg-gray-100 rounded-md"
                 />
-
-                <label for="Jenis Kelamin" class="mt-4 mb-2"
-                    >Jenis Kelamin:</label
-                >
-                <select
-                    name="Jenis Kelamin"
-                    id="Jenis Kelamin"
-                    class="p-4 bg-gray-100 rounded-md"
-                >
-                    <option value="Laki-laki">Laki-laki</option>
-                    <option value="Perempuan">Perempuan</option>
-                </select>
-
-                <label for="Perokok" class="mt-4 mb-2">Perokok:</label>
-                <select
-                    name="Perokok"
-                    id="Perokok"
-                    class="p-4 bg-gray-100 rounded-md"
-                >
-                    <option value="Ya">Ya</option>
-                    <option value="Tidak">Tidak</option>
-                </select>
 
                 <button
                     type="submit"
@@ -74,8 +52,8 @@
                         mt-8
                         p-4
                         bg-gradient-to-r
-                        from-green-400
-                        to-blue-500
+                        from-green-500
+                        to-cyan-300
                         text-white
                         rounded-md
                     "
@@ -102,27 +80,30 @@
         <section class="mt-8 h-full flex-auto rounded-lg md:mt-0 md:ml-8">
             <div class="bg-white p-16 rounded-lg">
                 <h1 class="text-2xl mb-8">
-                    Estimasi biaya asuransi Anda adalah
+                    Tingkat kesembuhan kasus covid-19 menurut total kasusnya adalah
                 </h1>
-                <h2 class="text-5xl font-bold">USD {{ insurance_cost }}</h2>
-                {% if (insurance_cost) != 0 %}
+                <h2 class="text-5xl font-bold"> {{ sembuh }}</h2>
+                {% if (sembuh) != 0 %}
                 <div class="mt-8">
-                    <p>Usia: {{ age }} tahun</p>
-                    <p>Jenis kelamin: {{ sex }}</p>
-                    <p>Status perokok: {{ smoker }}</p>
+                    <p>Total Kasus Covid-19: {{ total_kasus }}</p>
                 </div>
                 {% endif %}
             </div>
             <div class="flex justify-around bg-white p-16 rounded-lg mt-8">
                 <img
                     class="h-24 md:h-28"
-                    src="https://digitalent.kominfo.go.id/assets/@images/logo.png"
+                    src="https://burnkit.com/app/uploads/2017/02/Group2_Logo_Black.jpg"
                     alt="logo-dts"
                 />
                 <img
                     class="h-24 md:h-28"
-                    src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Logo_of_Ministry_of_Communication_and_Information_Technology_of_the_Republic_of_Indonesia.svg/604px-Logo_of_Ministry_of_Communication_and_Information_Technology_of_the_Republic_of_Indonesia.svg.png"
-                    alt="logo-kominfo"
+                    src="https://covid19.natunakab.go.id/wp-content/uploads/2020/04/logo3.png"
+                    alt="logo-dts"
+                />
+                <img
+                    class="h-24 md:h-28"
+                    src="https://i3.wp.com/untirta.ac.id/wp-content/uploads/2020/12/logo-kampus-merdeka.png"
+                    alt="logo-dts"
                 />
             </div>
         </section>
