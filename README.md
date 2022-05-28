@@ -1,4 +1,4 @@
-# **DEPLOY MODEL**
+# Covid-19 Death Rate Prediction
 
 ## Deskripsi Singkat <br>
 Model ini akan menampilkan data yang digunakan untuk melakukan deployment menggunakan Machile Learning dengan model Regresi Linier. Model yang akan digunakan pada tahapan ini akan “Memprediksi Kasus Kesembuhan” dengan memperhatikan Total kasus yang bertipe data int
